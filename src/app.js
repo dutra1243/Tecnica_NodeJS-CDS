@@ -13,14 +13,21 @@ app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}] == ${req.method} ${req.url}`);
     next();
 })
-
-
 // TODO: Implement and import routes
 
 
 app.get('/', (req, res) => {
     res.send('Thi is a movies API (ʘ ͜ʖ ʘ) !!!');
 });
+
+
+const authRoutes = require('./routes/auth');
+app.use('/api', authRoutes);
+
+
+const authenticate = require('./middleware/authenticate');
+app.use(authenticate)
+
 
 
 app.listen(PORT, () => {
