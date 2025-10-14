@@ -13,7 +13,6 @@ app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}] == ${req.method} ${req.url}`);
     next();
 })
-// TODO: Implement and import routes
 
 
 app.get('/', (req, res) => {
@@ -25,9 +24,17 @@ const authRoutes = require('./routes/auth');
 app.use('/api', authRoutes);
 
 
-const authenticate = require('./middleware/authenticate');
-app.use(authenticate)
+const authentication = require('./middleware/authentication');
+app.use(authentication)
 
+
+// TODO: Implement and import userRoutes.js and movieRoutes.js
+
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
+
+const movieRoutes = require('./routes/movieRoutes');
+app.use('/api/movies', movieRoutes);
 
 
 app.listen(PORT, () => {

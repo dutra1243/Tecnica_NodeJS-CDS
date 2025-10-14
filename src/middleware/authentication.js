@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken');
 
-const BLACKLIST_FILE = process.env.BLACKLIST_FILE || 'DATA/BLACKLIST.txt';
+const BLACKLIST_FILE = 'API_DATA/BLACKLIST.txt';
 const { readFile, writeFile } = require('../helpFunctions/fileHelper');
 
-function authenticate(req, res, next) {
+function authentication(req, res, next) {
     const token = req.headers['authorization']?.split(' ')[1];
     if (!token) {
         return res.status(401).json({ message: 'No token provided' });
@@ -46,4 +46,4 @@ function authenticate(req, res, next) {
     }
 };
 
-module.exports = authenticate;
+module.exports = authentication;

@@ -2,6 +2,8 @@ const express = require('express');
 const {body, param} = require('express-validator');
 const {validateReq} = require('../middleware/validateReq');
 
+const {addFavoriteMovieToUser, getUserFavoriteMovies} = require('../controllers/userController');
+
 
 const router = express.Router();
 
