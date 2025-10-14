@@ -15,11 +15,18 @@ app.use((req, res, next) => {
 })
 
 
-
-
 app.get('/', (req, res) => {
     res.send('Thi is a movies API (ʘ ͜ʖ ʘ)!!!');
 });
+
+
+const authRoutes = require('./routes/auth');
+app.use('/api', authRoutes);
+
+
+const authenticate = require('./middleware/authenticate');
+app.use(authenticate)
+
 
 
 app.listen(PORT, () => {
