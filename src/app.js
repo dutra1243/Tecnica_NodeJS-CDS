@@ -15,10 +15,11 @@ app.use((req, res, next) => {
 })
 
 
+// TODO: Implement and import routes
 
 
 app.get('/', (req, res) => {
-    res.send('Thi is a movies API (ʘ ͜ʖ ʘ)!!!');
+    res.send('Thi is a movies API (ʘ ͜ʖ ʘ) !!!');
 });
 
 
