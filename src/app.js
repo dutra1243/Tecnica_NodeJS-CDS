@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 
 app.get('/', (req, res) => {
-    res.send('Thi is a movies API (ʘ ͜ʖ ʘ)!!!');
+    res.send('Thi is a movies API (ʘ ͜ʖ ʘ) !!!');
 });
 
 
@@ -24,9 +24,17 @@ const authRoutes = require('./routes/auth');
 app.use('/api', authRoutes);
 
 
-const authenticate = require('./middleware/authenticate');
-app.use(authenticate)
+const authentication = require('./middleware/authentication');
+app.use(authentication)
 
+
+// TODO: Implement and import userRoutes.js and movieRoutes.js
+
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
+
+const movieRoutes = require('./routes/movieRoutes');
+app.use('/api/movies', movieRoutes);
 
 
 app.listen(PORT, () => {

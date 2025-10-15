@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken');
 
 const { readFile, writeFile } = require('../helpFunctions/fileHelper');
 
-const USERS_FILE = 'DATA/USERS.txt';
-const BLACKLIST_FILE = 'DATA/BLACKLIST.txt';
+const USERS_FILE = 'API_DATA/USERS.txt';
+const BLACKLIST_FILE = 'API_DATA/BLACKLIST.txt';
 const SECRET_KEY = process.env.JWT_SECRET_KEY
 
 async function register(req, res, next) {
