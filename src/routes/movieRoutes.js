@@ -2,10 +2,11 @@ const express = require('express');
 const query = require('express-validator');
 const validateReq = require('../middleware/validateReq');
 
+const {searchMovies} = require('../controllers/movieController');
+
 
 const router = express.Router();
 
-// TODO: implement and import these controller functions and after that document the routes.
 router.get('/searchMovie', [
     query('keyword')
     .optional()
