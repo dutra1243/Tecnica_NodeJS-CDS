@@ -16,7 +16,7 @@ const router = express.Router();
  * @returns {object} 400 - Email already exists or validation error
  * @returns {object} 500 - Internal server error
  */
-router.post('/auth/register', [
+router.post('/register', [
     body('email').isEmail().withMessage('Invalid email format'),
     body('firstName').notEmpty().withMessage('First name is required').escape(),
     body('lastName').notEmpty().withMessage('Last name is required').escape(),
@@ -32,7 +32,7 @@ router.post('/auth/register', [
  * @returns {object} 401 - Invalid email or password
  * @returns {object} 500 - Internal server error
  */
-router.post('/auth/login', [
+router.post('/login', [
     body('email').isEmail().withMessage('Invalid email format'),
     body('password').notEmpty().isLength({min : 8}).withMessage('Password must be at least 8 characters long')
 ], validateReq, login);
@@ -45,6 +45,6 @@ router.post('/auth/login', [
  * @returns {object} 200 - Logout successful
  * @returns {object} 500 - Internal server error
  */
-router.post('/auth/logout', logout);
+router.post('/logout', logout);
 
 module.exports = router;
