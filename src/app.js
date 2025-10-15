@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 // Public routes
 
 const authRoutes = require('./routes/auth');
-app.use('/api', authRoutes);
+app.use('/api/auth', authRoutes);
 
 
 // Authentication middleware
