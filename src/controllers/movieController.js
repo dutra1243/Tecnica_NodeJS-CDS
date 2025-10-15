@@ -10,24 +10,7 @@ async function searchMovies(req, res, next) {
         console.log('Keyword:', keyword);
 
         // Fetch movies from TMDB API
-        let response = {};
-        try {
-            const baseURL = 'https://api.themoviedb.org/3';
-            const headers = {
-                'Authorization': `Bearer ${TMDB_TOKEN}`,
-                'Content-Type': 'application/json'
-            };
-
-            response = await axios.get(
-                keyword 
-                    ? `${baseURL}/search/movie?query=${encodeURIComponent(keyword)}&page=1` // Search with keyword if provided
-                    : `${baseURL}/movie/popular`, // Otherwise get popular movies
-                { headers }
-            );
-        } catch (error) {
-            console.error('Error fetching movies:', error.message);
-            throw error;
-        }
+        let response = await getMoviesByKeyword(keyword);
 
         // Add a random suggestion score to each movie and sort by it
         const addedScore = response.data.results
