@@ -4,6 +4,8 @@ const BLACKLIST_FILE = 'API_DATA/BLACKLIST.txt';
 const { readFile, writeFile } = require('../helpFunctions/fileHelper');
 
 function authentication(req, res, next) {
+
+    // Check for token in Authorization header
     const token = req.headers['authorization']?.split(' ')[1];
     if (!token) {
         return res.status(401).json({ message: 'No token provided' });
@@ -34,6 +36,7 @@ function authentication(req, res, next) {
             }
         });
 
+        // Load the user data into the request in req.USER
         req.USER = {
             email: payload.email,
             id: payload.id

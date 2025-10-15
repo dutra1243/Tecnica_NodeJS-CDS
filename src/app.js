@@ -15,20 +15,25 @@ app.use((req, res, next) => {
 })
 
 
+// Test route
+
 app.get('/', (req, res) => {
     res.send('Thi is a movies API (ʘ ͜ʖ ʘ) !!!');
 });
 
 
+// Public routes
+
 const authRoutes = require('./routes/auth');
 app.use('/api', authRoutes);
 
 
+// Authentication middleware
+
 const authentication = require('./middleware/authentication');
 app.use(authentication)
 
-
-// TODO: Implement and import userRoutes.js and movieRoutes.js
+// Protected routes
 
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/users', userRoutes);
@@ -36,6 +41,8 @@ app.use('/api/users', userRoutes);
 const movieRoutes = require('./routes/movieRoutes');
 app.use('/api/movies', movieRoutes);
 
+
+// Server start
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
