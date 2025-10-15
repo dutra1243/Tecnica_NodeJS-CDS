@@ -29,6 +29,12 @@ Para iniciar el servidor, ejecuta:
 npm start
 ```
 
+## Ejecutar el test del endpoint /api/movies/searchMovies
+Para correr los tests, ejecutar:
+```bash
+npm test
+```
+
 ## Postman
 
 Puedes importar la colección de Postman desde el archivo [Endpoint Testing - CDS.postman_collection.json](https://github.com/dutra1243/Tecnica_NodeJS-CDS/blob/main/Endpoint%20Testing%20-%20CDS.postman_collection.json) incluido en el proyecto.
