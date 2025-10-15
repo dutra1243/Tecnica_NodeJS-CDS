@@ -1,6 +1,6 @@
 const express = require('express');
-const query = require('express-validator');
-const validateReq = require('../middleware/validateReq');
+const { query } = require('express-validator');
+const { validateReq } = require('../middleware/validateReq');
 
 const {searchMovies} = require('../controllers/movieController');
 
