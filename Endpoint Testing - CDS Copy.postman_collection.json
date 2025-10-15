@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "52e82085-7141-42ec-9ff8-e6438ffa38bf",
+		"name": "Endpoint Testing - CDS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36883163"
+	},
+	"item": [
+		{
+			"name": "Auth Endpoints",
+			"item": [
+				{
+					"name": "REGISTER",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"leonardo.dicaprison@example.net\",\r\n    \"firstName\": \"Leonardo\",\r\n    \"lastName\": \"DiCaprison\",\r\n    \"password\": \"DoLookUp_PrettyPlease\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"leonardo.dicaprison@example.net\",\r\n    \"password\": \"DoLookUp_PrettyPlease\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "LOGOUT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{base_url}}/api/auth/logout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie Endpoints",
+			"item": [
+				{
+					"name": "SEARCH_MOVIES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/movies/searchMovie"
+					},
+					"response": []
+				},
+				{
+					"name": "SEARCH_MOVIES(With query parameter)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/movies/searchMovie?keyword=interstellar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"movies",
+								"searchMovie"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "interstellar"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Endpoints",
+			"item": [
+				{
+					"name": "ADD_FAVORITE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movieID\": 1124\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/users/addFavorite"
+					},
+					"response": []
+				},
+				{
+					"name": "FAVORITE_MOVIES",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/users/favoriteMovies"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HEALTH_CHECK",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{base_url}}/"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE4OWVlYzdkLTdhYjUtNDQzMS05NDJlLWMwMDZmNDRhOTY2ZCIsImVtYWlsIjoibGVvbmFyZG8uZGljYXByaXNvbkBleGFtcGxlLm5ldCIsImp0aSI6IjNlNTQzYzc4LTEzNjktNGMyOS1iNDg4LWVjOTg4YzI0ZWExZiIsImlhdCI6MTc2MDU1NDc2MSwiZXhwIjoxNzYwNzI3NTYxfQ.rK7xBB6n00nPPHWWb41eJEaRey3HvR3VsgS1gCLsx0w"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": ""
+		}
+	]
+}
